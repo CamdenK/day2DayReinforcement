@@ -38,7 +38,7 @@ for row_index, row in enumerate(rawInput):
             rawInput[row_index][col_index] = 1.0
         else:
             rawInput[row_index][col_index] = 0.0
-        
+
 # totalOpeners is the total number of opens
 totalOpeners = np.sum(rawInput)
 
@@ -66,7 +66,7 @@ for iteration in range(0, numIterations):
                 randArr[row_index][col_index] = 0
             else:
                 randArr[row_index][col_index] = 1
-    for row_index in range(0, len(ratProb)):
+    for row_index in range(0, len(ratProb) - 1):
         for col_index in range(0, len(dayProb)):
             if(randArr[row_index][col_index] == 1):
                 numOpens += 1.0
@@ -78,7 +78,7 @@ averageProbDist = sum(probDist) / len(probDist)
 # calculate the actual values
 numSequent = 0.0
 numOpens = 0.0
-for x in range(0,len(ratProb)):
+for x in range(0,len(ratProb) - 1):
     for y in range(0,len(dayProb)):
         if(inputArray[x][y] == 1):
             numOpens += 1
